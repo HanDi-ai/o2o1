@@ -30,7 +30,7 @@ import java.util.Map;
 public class productManagementController {
     @Autowired
     private ProductService productService;
-    //最大上传6张详情图片
+    //最234234大上传6张详情图片
     private static final int IMAGEMAXCOUNT = 6;
 
     @RequestMapping(value = "/addproduct",method = RequestMethod.POST)
