@@ -1,0 +1,5 @@
+2020-07-09 15:58:29.704 [main] ERROR com.imooc.o2o.util.ImageUtil - java.io.FileNotFoundException: F:\1F:\1\item\shop\3\2020070915582944846.jpg (文件名、目录名或卷标语法不正确。)
+2020-07-09 16:07:51.739 [main] ERROR com.imooc.o2o.util.ImageUtil - java.io.FileNotFoundException: F:\1\item\shop\4\2020070916075134591.jpg (系统找不到指定的路径。)
+2020-07-09 16:10:24.150 [main] ERROR com.imooc.o2o.util.ImageUtil - java.io.FileNotFoundException: F:\1\5\2020070916102365263.jpg (系统找不到指定的路径。)
+2020-07-09 17:04:25.519 [main] ERROR com.imooc.o2o.util.ImageUtil - java.io.FileNotFoundException: F:\1\item\shop\7\2020070917025164050.jpg (系统找不到指定的路径。)
+2020-07-09 17:07:58.710 [main] ERROR com.imooc.o2o.util.ImageUtil - java.io.FileNotFoundException: F:\1\item\shop\9\2020070917075880886.jpg (系统找不到指定的路径。)

@@ -1,0 +1,12 @@
+2020-07-17 11:32:04.450 [main] DEBUG com.imooc.o2o.util.ImageUtil - current relativeAddr is :1\item\shop\1\2020071711320471870.jpg
+2020-07-17 11:32:04.465 [main] DEBUG com.imooc.o2o.util.ImageUtil - current completeAddr is :F:\1\item\shop\1\2020071711320471870.jpg
+2020-07-17 11:32:05.025 [main] DEBUG com.imooc.o2o.dao.ProductDao.insertProduct - ==>  Preparing: insert into tb_product ( product_name,product_desc,img_addr,normal_price, promotion_price,priority,create_time,last_edit_time,enable_status, product_category_id,shop_id )values ( ?,?,?,?,?, ?,?,?,?,?,? ) 
+2020-07-17 11:32:05.050 [main] DEBUG com.imooc.o2o.dao.ProductDao.insertProduct - ==> Parameters: 测666(String), 测777(String), 1\item\shop\1\2020071711320471870.jpg(String), null, null, 20(Integer), 2020-07-17 11:32:04.447(Timestamp), 2020-07-17 11:32:04.447(Timestamp), 1(Integer), 1(Long), 1(Long)
+2020-07-17 11:32:05.052 [main] DEBUG com.imooc.o2o.dao.ProductDao.insertProduct - <==    Updates: 1
+2020-07-17 11:32:05.056 [main] DEBUG com.imooc.o2o.util.ImageUtil - current relativeAddr is :1\item\shop\1\2020071711320575730.jpg
+2020-07-17 11:32:05.057 [main] DEBUG com.imooc.o2o.util.ImageUtil - current completeAddr is :F:\1\item\shop\1\2020071711320575730.jpg
+2020-07-17 11:32:05.535 [main] DEBUG com.imooc.o2o.util.ImageUtil - current relativeAddr is :1\item\shop\1\2020071711320586934.jpg
+2020-07-17 11:32:05.535 [main] DEBUG com.imooc.o2o.util.ImageUtil - current completeAddr is :F:\1\item\shop\1\2020071711320586934.jpg
+2020-07-17 11:32:05.938 [main] DEBUG c.i.o2o.dao.ProductImgDao.batchInsertProductImg - ==>  Preparing: insert into tb_product_img ( img_addr, img_desc, priority, create_time, product_id )values ( ?, ?, ?, ?, ? ) , ( ?, ?, ?, ?, ? ) 
+2020-07-17 11:32:05.939 [main] DEBUG c.i.o2o.dao.ProductImgDao.batchInsertProductImg - ==> Parameters: 1\item\shop\1\2020071711320575730.jpg(String), null, null, 2020-07-17 11:32:05.534(Timestamp), 4(Long), 1\item\shop\1\2020071711320586934.jpg(String), null, null, 2020-07-17 11:32:05.921(Timestamp), 4(Long)
+2020-07-17 11:32:05.939 [main] DEBUG c.i.o2o.dao.ProductImgDao.batchInsertProductImg - <==    Updates: 2
