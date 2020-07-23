@@ -21,12 +21,12 @@ public class ShopDaoTest extends BaseTest {
     @Test
     public void testQueryShopList(){
         Shop shop = new Shop();
-        PersonInfo personInfo = new PersonInfo();
-        personInfo.setUserId(1L);
-        shop.setPersonInfo(personInfo);
-        shop.setEnableStatus(0);
-        shop.setShopName("咖");
-        List<Shop> list = shopDao.queryShopList(shop,0,5);
+        ShopCategory shopCategory = new ShopCategory();
+        ShopCategory shopCategory1 = new ShopCategory();
+        shopCategory1.setShopCategoryId(5L);
+        shopCategory.setShopCategory(shopCategory1);
+        shop.setShopCategory(shopCategory);
+        List<Shop> list = shopDao.queryShopList(shop,0,7);
         int f =shopDao.queryShopCount(shop);
         System.out.println("店铺大小："+list.size());
         System.out.println("数量："+f);

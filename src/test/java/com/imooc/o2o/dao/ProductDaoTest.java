@@ -3,11 +3,14 @@ package com.imooc.o2o.dao;
 import com.imooc.o2o.BaseTest;
 import com.imooc.o2o.entity.Product;
 import com.imooc.o2o.entity.ProductCategory;
+import com.imooc.o2o.entity.ProductImg;
 import com.imooc.o2o.entity.Shop;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -59,5 +62,45 @@ public class ProductDaoTest extends BaseTest {
         assertEquals(1,fv);
         fv = productDao.insertProduct(product3);
         assertEquals(1,fv);
+    }
+
+    @Test
+    public void TestB(){
+        ProductImg p1 = new ProductImg();
+        p1.setImgAddr("15");
+        p1.setPriority(1);
+        p1.setCreateTime(new Date());
+        p1.setProductId(4L);
+        ProductImg p2 = new ProductImg();
+        p2.setImgAddr("25");
+        p2.setPriority(2);
+        p2.setCreateTime(new Date());
+        p2.setProductId(4L);
+        List<ProductImg> list = new ArrayList<ProductImg>();
+        list.add(p1);
+        list.add(p2);
+        /*int ff = productImgDao.batchInsertProductImg(list);
+        assertEquals(2,ff);*/
+
+        Product pr = productDao.queryByProductId(4l);
+        assertEquals(1,pr.getProductImgList().size());
+
+        /*int ff = productImgDao.deleteProductImgByProductId(4l);
+        assertEquals(4,ff);*/
+    }
+
+    @Test
+    public void TestC(){
+    Product f = new Product();
+        List<Product> g = productDao.queryProductList(f,0,5);
+        int gf = productDao.queryProductCount(f);
+        assertEquals(5,g.size());
+        assertEquals(5,gf);
+    }
+
+    @Test
+    public void TestD(){
+        int gg = productDao.updataProductCategoryToNull(2L);
+        assertEquals(1,gg);
     }
 }

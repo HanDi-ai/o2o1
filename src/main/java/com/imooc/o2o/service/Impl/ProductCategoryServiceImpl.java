@@ -1,10 +1,12 @@
 package com.imooc.o2o.service.Impl;
 
 import com.imooc.o2o.dao.ProductCategoryDao;
+import com.imooc.o2o.dao.ProductDao;
 import com.imooc.o2o.dto.ProductCategoryExecution;
 import com.imooc.o2o.entity.ProductCategory;
 import com.imooc.o2o.enums.ProductCategoryStateEnum;
 import com.imooc.o2o.exceptions.ProductCategoryOperationException;
+import com.imooc.o2o.exceptions.ProductOperationException;
 import com.imooc.o2o.service.ProductCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +17,8 @@ import java.util.List;
 public class ProductCategoryServiceImpl implements ProductCategoryService {
     @Autowired
     private ProductCategoryDao productCategoryDao;
-
+    @Autowired
+    private ProductDao productDao;
     @Override
     public List<ProductCategory> getProductCategoryList(long shopId) {
         return productCategoryDao.queryProductCategoryList(shopId);
@@ -44,7 +47,15 @@ public class ProductCategoryServiceImpl implements ProductCategoryService {
     @Override
     @Transactional
     public ProductCategoryExecution deleteProductCategory(long productCategoryId, long shopId) throws ProductCategoryOperationException {
-        //todo 将此商品类别下的商品的类别ID置为空
+        //删除商品类别前，先把数据库里，用到了该商品类别的商品信息里的product_category_id置为空，然后才可以删除商品类别
+        try {
+            int effectedNum = productDao.updataProductCategoryToNull(productCategoryId);
+            if(effectedNum < 0){
+                throw new ProductOperationException("商品类别更新失败");
+            }
+        } catch (ProductOperationException e) {
+            throw new ProductOperationException("errMsg:"+e.toString());
+        }
         try{
             int effectedNum = productCategoryDao.deleteProductCategory(productCategoryId,shopId);
             if(effectedNum <= 0){
