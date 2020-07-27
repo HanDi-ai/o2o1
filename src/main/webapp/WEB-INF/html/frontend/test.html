@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .myls-out-div {
+            width: 100%;
+            height: 212px;
+            background-color: #fafafa;
+            float: left;
+            overflow: hidden;
+        }
+
+        .myls-img {
+            height: 100%;
+        }
+
+        .myls-ul{
+            float: left;
+            height: 100%;
+            position: relative;
+            margin: 0px;
+            padding: 0px;
+        }
+        .myls-li{
+            list-style: none;
+            display: inline-block;
+            float: left;
+            padding-right: 15px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            height: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<div class="myls-out-div" style="overflow: hidden;">
+    <ul id="mylspaomadeng"  class="myls-ul"  >
+        <!--
+        <li  class="myls-li">
+            <img  class="myls-img" src="F:/1/33new.jpg"  alt="图片4" style="width: 130px;height: 140px;"/>
+        </li>-->
+    </ul>
+</div>
+
+<script type='text/javascript' src='G:/o2o/src/main/webapp/resources/js/common/jquery.min.js'
+        charset='utf-8'></script>
+</body>
+
+<script type="text/javascript">
+    imgPath();
+    function imgPath(){
+        var imgPathList = [{imgPath:'G:/IoTBMP/曲家库设备部署图片/仓/微信图片_20180831133014.jpg'},
+                {imgPath:'G:/IoTBMP/曲家库设备部署图片/仓/微信图片_20180831133015.jpg'},
+                {imgPath:'G:/IoTBMP/曲家库设备部署图片/仓/微信图片_201808311330141.jpg'},
+                {imgPath:'G:/IoTBMP/曲家库设备部署图片/仓/微信图片_201808311330142.jpg'},
+                {imgPath:'G:/IoTBMP/曲家库设备部署图片/仓/微信图片_201808311330143.jpg'}]
+        var html ='';
+        imgPathList.map(function(item, index){
+            html += '<li class="myls-li">'
+                +'<img  class="myls-img" src="'+item.imgPath+'" alt="图片'+index+'" style="width: 130px;height: 140px;"/>'
+                +'</li>';
+        });
+        $('.myls-ul').append(html);
+    }
+    mylsRunHorseLight();
+    function mylsRunHorseLight() {
+        var mylsTimer=5000;
+        if (mylsTimer != null) {
+            clearInterval(mylsTimer);
+        }
+        var oUl = document.getElementById("mylspaomadeng");
+        if(oUl != null){
+            oUl.innerHTML += oUl.innerHTML;
+            oUl.innerHTML += oUl.innerHTML;
+            oUl.innerHTML += oUl.innerHTML;
+            var lis = oUl.getElementsByTagName('li');
+            var lisTotalWidth = 0;
+            var resetWidth = 0;
+            for (var i = 0; i < lis.length; i++) {
+                lisTotalWidth += lis[i].offsetWidth;
+            }
+            for (var i = 1; i <= lis.length / 4; i++) {
+                resetWidth += lis[i].offsetWidth;
+            }
+            oUl.style.width = lisTotalWidth + 'px';
+            var left = 0;
+            mylsTimer = setInterval(function() {
+                left -= 1;
+                if (left <= -resetWidth) {
+                    left = 0;
+                }
+                oUl.style.left = left + 'px';
+            }, 20)
+            $("#mylspaomadeng").hover(function() {
+                clearInterval(mylsTimer);
+            }, function() {
+                clearInterval(mylsTimer);
+                mylsTimer = setInterval(function() {
+                    left -= 1;
+                    if (left <= -resetWidth) {
+                        left = 0;
+                    }
+                    oUl.style.left = left + 'px';
+                }, 20);
+            })
+        }
+    }
+</script>
+</html>
